@@ -17,11 +17,37 @@ import jakarta.persistence.OneToMany; //Permite gerar os relacionamentos (ex:1 p
 
 public class Categoria{
     @Id //Aqui cria um campo chamado id, no banco de dados - Define que vai ser a chave primária
-    @GeneratedValue(strategy = GenerationType.INDENTITY) //Nessa linha esta sendo criado um campo autoincrement e sendo atribuido ao id criado acima
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Nessa linha esta sendo criado um campo autoincrement e sendo atribuido ao id criado acima
 
     private long id; // Criando uma variavel do tipo long e private
 
     @Column (unique = true, nullable = false) // Aqui está sendo criado uma coluna do tipo string e private, sendo limitado a ser um campo que não se repete e não nulo
     private String nome; //Aqui esta nomeando a coluna criada acima
+
+    @OneToMany(mappedBy = "categoria")
+    private Set<Jogo> jogos = new HashSet<>();
+
+    public long getId(){
+        return id;
+    }
+    public String getNome(){
+        return nome;
+    }
+    public Set<Jogo> getJogos(){
+        return jogos;
+    }
+
+    //Set
+    public void setId(long id){
+        this.id = id;
+    }
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    public void setJogos(Set<Jogo> jogos){
+        this.jogos = jogos;
+    }
+
+
 
 }
