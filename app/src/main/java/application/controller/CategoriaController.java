@@ -29,31 +29,31 @@ public class CategoriaController {
         return "categoria/insert"; 
     } 
 
-    @RequestMapping(value = "/insert", method RequestMethod.POST) 
+    @RequestMapping(value = "/insert", method = RequestMethod.POST) 
     public String insert (@RequestParam("nome") String nome) { 
-        Categoria categoria new Categoria(); 
+        Categoria categoria = new Categoria(); 
         categoria.setNome (nome); 
-        categoriaRepo, save (categoria); 
+        categoriaRepo.save (categoria); 
         return "redirect:/categoria/list"; 
     }
 
     @RequestMapping("/update")
     public String update(@RequestParam("id") long id, Model ui){
-            Optional<CategoriaRepositoria> categoria = categoriaRepo.findById(id);
+            Optional<Categoria> categoria = categoriaRepo.findById(id);
 
             if(categoria.isPresent()){
                 ui.addAttribute("categoria", categoria.get());
-                return "categoria/update"
+                return "categoria/update";
             }
 
-            return "redirect: /categoria/list"
+            return "redirect: /categoria/list";
 
     }
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update( 
         @RequestParam("id") long id, 
         @RequestParam("nome") String nome) { 
-        Optional<Categoria> categoria categoriaRepo.findById(id); 
+        Optional<Categoria> categoria = categoriaRepo.findById(id); 
         if(categoria.isPresent()) { 
         categoria.get().setNome (nome); 
         categoriaRepo.save(categoria.get()); 
@@ -65,7 +65,7 @@ public class CategoriaController {
     public String delete( 
         @RequestParam("id") long id, 
         Model ui) { 
-        Optional<Categoria> categoria categoriaRepo, findById(id); 
+        Optional<Categoria> categoria = categoriaRepo.findById(id); 
         if(categoria.isPresent()) { 
         ui.addAttribute("categoria", categoria.get()); 
         return "categoria/delete"; 
