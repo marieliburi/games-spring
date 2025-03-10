@@ -26,6 +26,7 @@
                     <option value="5">Estratégia</option>
                     <option value="6">Simulação</option>
                 </select>
+                
             </div>
             
             <div class="form-group">
