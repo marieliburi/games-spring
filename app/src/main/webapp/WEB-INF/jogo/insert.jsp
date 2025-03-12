@@ -10,25 +10,19 @@
 <body>
     <div class="container">
         <h1>Novo Jogo</h1>
-        <form action="/jogo/insert" method="POST">
+        <form action="/jogo/insert" method="post">
             <div class="form-group">
                 <label for="titulo">Titulo:</label>
                 <input type="text" name="titulo" class="form-control" />
             </div>
             <div class="form-group">
                 <label for="categoria">Categoria:</label>
-                <select name="categoria" class="form-select" required>
-                    <!-- Adicionando algumas categorias diretamente no código -->
-                    <option value="1">Ação</option>
-                    <option value="2">Aventura</option>
-                    <option value="3">RPG</option>
-                    <option value="4">Esporte</option>
-                    <option value="5">Estratégia</option>
-                    <option value="6">Simulação</option>
+                <select name="categoria" class="form-select">
+                    <c:forEach var="c" items="${categorias}">
+                        <option value="${c.id}">${c.nome}</option>
+                    </c:forEach>
                 </select>
-                
             </div>
-            
             <div class="form-group">
                 <label for="plataforma">Plataforma(s):</label>
                 <c:forEach var="p" items="${plataformas}">
@@ -45,5 +39,3 @@
     </div>
 </body>
 </html>
-
- 
