@@ -10,8 +10,8 @@ services:
       MYSQL_DATABASE: applicationbd
       MYSQL_USER: appuser
       MYSQL_PASSWORD: apppasswd
-      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_ROOT_PASSWORD: 
     ports:
-      - 3306:3307
+      - 3307:3306
     volumes:
       - ./assets/data:/docker-entrypoint-initdb.d
