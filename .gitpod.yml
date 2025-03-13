@@ -1,4 +1,4 @@
-image: gitpod/workspace-mysql
+image: gitpod/workspace-java-17
 
 tasks:
   - init: |
@@ -11,24 +11,13 @@ tasks:
       done
 
       # Criar banco de dados se não existir
-      mysql -u root -e "CREATE DATABASE IF NOT EXISTS applicationdb"
-
-      # Instalar e configurar Java 17
-      sudo apt update && sudo apt install -y openjdk-17-jdk
-      echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> ~/.bashrc
-      echo "export PATH=\$JAVA_HOME/bin:\$PATH" >> ~/.bashrc
-      source ~/.bashrc
-
-      # Verificar versão do Java
-      java -version
-
-
+      mysql -u root -prootpass -e "CREATE DATABASE IF NOT EXISTS applicationdb"
 
 vscode:
-    extensions:
-      - vscjava.vscode-java-pack
-      - humao.rest-client
-      - vscjava.vscode-gradle
+  extensions:
+    - vscjava.vscode-java-pack
+    - humao.rest-client
+    - vscjava.vscode-gradle
 
 ports:
   - port: 8080
