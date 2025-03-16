@@ -1,7 +1,6 @@
 version: '3.1'
 
 services:
-
   db:
     image: mysql:5.7
     container_name: mysql
@@ -12,8 +11,9 @@ services:
       MYSQL_PASSWORD: apppasswd
       MYSQL_ROOT_PASSWORD: rootpass
     ports:
-      - 3306:3307
+      - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sq
- 
+      - mysql_data:/var/lib/mysql  # Corrigindo a referência ao volume
+
+volumes:
+  mysql_data:  # Criando o volume corretamente
