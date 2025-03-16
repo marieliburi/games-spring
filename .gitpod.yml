@@ -1,17 +1,9 @@
-image: gitpod/workspace-mysql
+image: gitpod/workspace-java-17
 
 tasks:
   - init: |
       # Iniciar Docker Compose
       docker-compose up -d
-
-      # Garantir que o MySQL esteja rodando antes de criar o banco
-      while ! mysqladmin ping --host=127.0.0.1 --silent; do
-        sleep 2
-      done
-
-      # Criar banco de dados se não existir
-      mysql -u root -e "CREATE DATABASE IF NOT EXISTS applicationdb"
 
       # Instalar e configurar Java 17
       sudo apt update && sudo apt install -y openjdk-17-jdk
@@ -21,6 +13,16 @@ tasks:
 
       # Verificar versão do Java
       java -version
+
+  - command: |
+      # Esperar MySQL iniciar completamente
+      while ! docker exec mysql mysqladmin ping --host=127.0.0.1 --silent -uroot -prootpass; do
+        sleep 2
+      done
+
+
+      # Mostrar os bancos disponíveis para verificar se foi criado corretamente
+      mysql -u root -prootpass -e "SHOW DATABASES;"
 
 vscode:
   extensions:
