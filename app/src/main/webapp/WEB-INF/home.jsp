@@ -63,7 +63,7 @@
 
     <!-- Seção Hero -->
     <div class="hero">
-        <h1>Bem-vindo ao Gerenciador de Jogos</h1>
+        <h1>Bem-vindo ao Game Hub</h1>
         <p>Cadastre, edite e gerencie seus jogos, categorias e plataformas facilmente!</p>
     </div>
 
