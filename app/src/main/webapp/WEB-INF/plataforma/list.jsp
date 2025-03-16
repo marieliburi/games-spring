@@ -10,10 +10,7 @@
     <style>
         /* Fundo da página */
         body {
-            background-image: url('URL-DA-SUA-IMAGEM'); /* Substitua pela URL da sua imagem */
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
+            background-color: #f8f9fa;
             color: white;
             font-family: Arial, sans-serif;
         }
@@ -21,9 +18,18 @@
         /* Estilo do container principal */
         .container {
             margin-top: 30px;
-            background-color: rgba(0, 0, 0, 0.5); /* Adiciona uma camada semitransparente para melhorar a legibilidade */
+            border: 3px solid #000000; /* Borda azul */
+            background-color: #f0f0f0; 
             padding: 20px;
             border-radius: 10px;
+        }
+
+        /* Estilo do título */
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center; 
+            color: black;
         }
 
         /* Estilo do botão de home */

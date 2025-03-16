@@ -41,19 +41,16 @@
             margin: 10px;
             padding: 15px 30px;
             font-size: 1.2rem;
-            border-radius: 25px; /* Botões arredondados */
+            border-radius: 25px; 
             transition: background-color 0.3s ease;
         }
 
-        .btn-custom:hover {
-            background-color: #0056b3;
-        }
 
         /* Estilo do rodapé */
         footer {
             background-color: rgba(0, 0, 0, 0.7);
             color: white;
-            padding: 10px 0;
+            padding: 5px 0;
             text-align: center;
             position: fixed;
             width: 100%;
